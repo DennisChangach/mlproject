@@ -31,7 +31,7 @@ version = '0.0.1',
 author = 'Changach',
 author_email = "kogeidennis@gmail.com",
 packages= find_packages(),
-#using tge get_requirements function to fetch the libararies needed to be installed for the ML app to run
+#using the get_requirements function to fetch the libararies needed to be installed for the ML app to run
 install_requires = get_requirements('requirements.txt')
 
 )

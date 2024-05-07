@@ -7,7 +7,7 @@ from datetime import datetime
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 #getcwd - current working dir
 logs_path = os.path.join(os.getcwd(),"logs",LOG_FILE)
-#creat log dir
+#create log dir -exist_ok=True - appends the file to the folder
 os.makedirs(logs_path,exist_ok=True)
 
 LOG_FILE_PATH = os.path.join(logs_path,LOG_FILE)
