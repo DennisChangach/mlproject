@@ -1,19 +1,28 @@
+import sys
+import os
+from src.pipeline.train_pipeline import TrainPipeline
 from src.components.data_ingestion import DataIngestion
-from src.components.data_transformation import DataTransformationConfig
-from src.components.data_transformation import DataTransformation
-from src.components.model_trainer import ModelTrainerConfig
-from src.components.model_trainer import ModelTrainer
+from src.logger import logging
+from src.exception import CustomException
+
+#Function to ingest data
+def ingest_data():
+    logging.info("Started Data Ingestion Pipeline")
+    try:
+        ingest = DataIngestion()
+        ingest.initiate_data_ingestion()
+
+    except Exception as e:
+        raise CustomException(e,sys)
 
 
-def main():
-    obj=DataIngestion()
-    train_data,test_data = obj.initiate_data_ingestion()
-
-    data_transformation = DataTransformation()
-    train_arr,test_arr= data_transformation.initiate_data_transformation(train_data,test_data)
-
-    model_trainer = ModelTrainer()
-    model_trainer.initiate_model_trainer(train_array=train_arr,test_array=test_arr)
-
+#Main function to train the model
+def train():
+    logging.info("Starting the Training Pipeline")
+    try:
+        model_trainer = TrainPipeline()
+        model_trainer.train_model()
+    except Exception as e:
+        raise CustomException(e,sys)
 if __name__=="__main__":
-    main()
+    train()
